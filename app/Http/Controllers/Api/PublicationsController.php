@@ -6,15 +6,17 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Publications;
 
+
 class PublicationsController extends Controller
 {
-   public function index() 
+    public function index() 
    {
     $consulta = Publications::all();
     return $consulta;
    }
 
    public function store(Request $request) {
+    
 
     $new_publication = new Publications();
     $new_publication -> name = $request -> name;
@@ -47,5 +49,5 @@ class PublicationsController extends Controller
     $delete_publication = Publications::destroy($id);
     return $delete_publication;
    }
-   
+
 }

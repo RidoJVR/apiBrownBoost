@@ -2,8 +2,28 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+
 use App\Http\Controllers\Api\ProductsController;
 use App\Http\Controllers\Api\PublicationsController;
+use App\Http\Controllers\Api\AuthController;
+
+
+
+Route::controller(AuthController::class)->group(function (){
+    Route::post('/login', 'login');
+
+    Route::get('/usuarios', 'index');
+    Route::post('/registro', 'register');
+    Route::put('/usuarios/{id}', 'update');
+    Route::delete('/eliminar/{id}', 'destroy' );
+
+});
+
+Route::group( ['middleware' => ["auth:sanctum"]], function(){
+    //rutas
+    Route::get('user-profile', [AuthController::class, 'userProfile']);
+    Route::get('logout', [AuthController::class, 'logout']);
+});
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
@@ -33,5 +53,3 @@ Route::controller(PublicationsController::class)->group(function () {
     
     Route::delete('publication/{id}', 'destroy');
 });
-
-
