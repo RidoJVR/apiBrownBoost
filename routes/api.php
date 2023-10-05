@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\ProductsController;
 use App\Http\Controllers\Api\PublicationsController;
 use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\CommentsController;
 
 
 
@@ -52,4 +53,16 @@ Route::controller(PublicationsController::class)->group(function () {
     Route::put('publication/{id}', 'update');
     
     Route::delete('publication/{id}', 'destroy');
+});
+
+Route::controller(CommentsController::class)->group(function () {
+    Route::get('/comentario','index');
+
+    Route::post('/comentario', 'store');
+    
+    Route::get('/comentario/{id}', 'show');
+
+    Route::put('comentario/{id}', 'update');
+    
+    Route::delete('comentario/{id}', 'destroy');
 });

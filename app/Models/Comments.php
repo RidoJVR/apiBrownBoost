@@ -9,6 +9,6 @@ class Comments extends Model
 {
     use HasFactory;
     protected $primaryKey = 'id';
-    protected $fillable =['id', 'comment', 'qualification'];
+    protected $fillable =['id', 'comment', 'qualification','publication'];
 
 }

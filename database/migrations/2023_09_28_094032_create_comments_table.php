@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->string('comment');
             $table->double('qualification');
+            $table->string('publication');
             $table->timestamps();
         });
     }
