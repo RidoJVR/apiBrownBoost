@@ -66,3 +66,11 @@ Route::controller(CommentsController::class)->group(function () {
     
     Route::delete('comentario/{id}', 'destroy');
 });
+
+Route::group(['prefix' => 'contacto'], function () {
+    Route::get('/', 'ContactoController@index');
+    Route::post('/', 'ContactoController@store');
+    Route::get('/{id}', 'ContactoController@show');
+    Route::put('/{id}', 'ContactoController@update');
+    Route::delete('/{id}', 'ContactoController@destroy');
+});
