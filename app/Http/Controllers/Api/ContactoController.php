@@ -1,11 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Api;
 
 use App\Models\Contacto;       
-use App\Mail\ContactanosMailable;
+// use App\Mail\ContactanosMailable;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Http\Request; 
+use App\Http\Controllers\Controller;
 
 class ContactoController extends Controller
 {
@@ -26,8 +27,8 @@ class ContactoController extends Controller
         
         $new_contacto -> save();
 
-        Mail::to('BrownBoost@gmail.com')
-        ->send(new ContactanosMailable($request->all()));
+        // Mail::to('BrownBoost@gmail.com')
+        // ->send(new ContactanosMailable($request->all()));
 
         session()->flash('info','Mensaje enviado');
 

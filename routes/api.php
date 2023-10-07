@@ -7,8 +7,7 @@ use App\Http\Controllers\Api\ProductsController;
 use App\Http\Controllers\Api\PublicationsController;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\CommentsController;
-
-
+use App\Http\Controllers\Api\ContactoController;
 
 Route::controller(AuthController::class)->group(function (){
     Route::post('/login', 'login');
@@ -68,9 +67,9 @@ Route::controller(CommentsController::class)->group(function () {
 });
 
 Route::group(['prefix' => 'contacto'], function () {
-    Route::get('/', 'ContactoController@index');
-    Route::post('/', 'ContactoController@store');
-    Route::get('/{id}', 'ContactoController@show');
-    Route::put('/{id}', 'ContactoController@update');
-    Route::delete('/{id}', 'ContactoController@destroy');
+    Route::get('/', [ContactoController::class, 'index']);
+    Route::post('/', [ContactoController::class, 'store']);
+    Route::get('/{id}', [ContactoController::class, 'show']);
+    Route::put('/{id}', [ContactoController::class, 'update']);
+    Route::delete('/{id}', [ContactoController::class, 'destroy']);
 });

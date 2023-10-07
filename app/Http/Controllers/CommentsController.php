@@ -19,7 +19,7 @@ class CommentsController extends Controller
     {
         $new_comments = new Comments();
         $new_comments -> comment = $request -> comment;
-        $new_comments -> publication = $request -> publication;
+        // $new_comments -> publication = $request -> publication;
         $new_comments -> qualification = $request -> qualification;
         
         $new_comments -> save();
@@ -29,7 +29,7 @@ class CommentsController extends Controller
     {
         $edit_comments = Comments::findOrFail($request->id);
         $edit_comments -> comment = $request -> comment;
-        $edit_comments -> publication = $request -> publication;
+        // $edit_comments -> publication = $request -> publication;
         $edit_comments -> qualification = $request -> qualification;
         
 
